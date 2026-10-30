@@ -47,18 +47,20 @@ public class SafeInput {
     {
         int userNumber = 0;
         String garbageString = "";
+        boolean garbageFlag = false;
 
         //yeah this isn't working lmao, it gets stuck in a do loop no matter the input made
         do {
             System.out.println("\n" + prompt + ": ");
             if (pipe.hasNextInt()) {
                 userNumber = pipe.nextInt();
+                garbageFlag = true;
             }else{
                 garbageString = pipe.nextLine();
                 System.out.println("You made a bad input: " + garbageString + "\nPlease try again.");
 
             }
-        }while(!garbageString.equals(prompt));
+        }while(!garbageFlag);
 
 
 
@@ -70,4 +72,3 @@ public class SafeInput {
     }
 
 }
-    public static double getDouble(Scanner pipe)
