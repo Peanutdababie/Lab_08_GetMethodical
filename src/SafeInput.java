@@ -70,5 +70,29 @@ public class SafeInput {
 
 
     }
+    public static double getDouble(Scanner pipe, String prompt)
+    {
+        double value = 0;
+        boolean done = false;
 
+        do
+        {
+            System.out.print("\n" + prompt + ": ");
+
+            if(pipe.hasNextDouble())
+            {
+                value = pipe.nextDouble();
+                done = true;
+            }
+            else
+            {
+                String trash = pipe.nextLine();
+                System.out.println("You said: " + trash);
+                System.out.println("That is not a valid double.");
+            }
+
+        } while(!done);
+
+        return value;
+    }
 }
