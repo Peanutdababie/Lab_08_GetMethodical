@@ -70,3 +70,4 @@ public class SafeInput {
     }
 
 }
+    public static double getDouble(Scanner pipe)
