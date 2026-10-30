@@ -95,4 +95,40 @@ public class SafeInput {
 
         return value;
     }
+
+
+    public static int getRangedInt(Scanner pipe, String prompt, int low, int high)
+    {
+        int userNumber = 0;
+        String garbageString = "";
+        boolean garbageFlag = false;
+
+        //yeah this isn't working lmao, it gets stuck in a do loop no matter the input made
+        do {
+            System.out.println("\n" + prompt + ": ");
+            if (pipe.hasNextInt()) {
+                userNumber = pipe.nextInt();
+                if(userNumber < low || userNumber > high)
+                {
+                    System.out.println("Looks like that number: " + userNumber + " is out of range! \nPlease try again.");
+                }else {
+                    garbageFlag = true;
+                }
+            }else{
+                garbageString = pipe.nextLine();
+                System.out.println("You made a bad input: " + garbageString + "\nPlease try again.");
+
+            }
+        }while(!garbageFlag);
+
+
+
+
+
+
+
+        return userNumber;
+
+
+    }
 }
